@@ -9,6 +9,10 @@
     </parameters>
     <services>
         <!-- Form types -->
+        <service id="avocode.form.extensions.type.autocomplete" class="Avocode\FormExtensionsBundle\Form\Type\AutocompleteType">
+            <tag name="form.type" alias="afe_autocomplete" />
+        </service>
+
         <service id="avocode.form.extensions.type.bootstrap_collection" class="Avocode\FormExtensionsBundle\Form\Type\BootstrapCollectionType" abstract="true" />
 
         <service id="avocode.form.extensions.type.collection_upload" class="Avocode\FormExtensionsBundle\Form\Type\CollectionUploadType">
