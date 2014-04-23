@@ -15,7 +15,7 @@
 
 ### Description
 
-Use [jQuery Ui Autocomplete Widget][jquery-ui-autocomplete-demo] as GUI wrapper to suggest inputco.
+Use [jQuery Ui Autocomplete Widget][jquery-ui-autocomplete-demo] as GUI wrapper to suggest input values to user.
 
 ### Options
 
@@ -69,10 +69,12 @@ Examples:
 
 ```JavaScript
     [lorem, ipsum, dolor, sit, amet]
-    ```
+```
+
 ```JavaScript
     [{label: "choice1", value: "lorem"}, {label: "choice2", value: "ipsum"}, ...]
-    ```
+```
+
 `http://my.domain.org/autocompleteApi`
 
 ```JavaScript
@@ -97,7 +99,7 @@ Examples:
               }
           })
       }
-      ```
+```
 
 
 ##### sourceRouteName
