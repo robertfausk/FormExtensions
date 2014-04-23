@@ -5,6 +5,7 @@ namespace Avocode\FormExtensionsBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
@@ -19,8 +20,23 @@ class AutocompleteType extends AbstractType
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $view->vars['configs'] = $options['configs'];
-        $view->vars['hidden'] = $options['hidden'];
+        if (empty($options['source']) && empty($options['sourceRouteName'])) {
+            throw new InvalidOptionsException('The "source" option or the "sourceRouteName" option have to be set.');
+        }
+
+        $view->vars = array_merge(
+            $view->vars,
+            array(
+                'appendTo' => $options['appendTo'],
+                'autoFocus' => $options['autoFocus'],
+                'delay' => $options['delay'],
+                'disabled' => $options['disabled'],
+                'minLength' => $options['minLength'],
+                'position' => $options['position'],
+                'source' => $options['source'],
+                'sourceRouteName' => $options['sourceRouteName'],
+            )
+        );
     }
 
     /**
@@ -28,17 +44,33 @@ class AutocompleteType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        parent::setDefaultOptions($resolver);
+
         $defaults = array(
-            'source' => "['lorem', 'ipsum', 'larum', 'käse', 'käserei']",
+            'appendTo' => null,
+            'autoFocus' => null,
+            'delay' => null,
+            'disabled' => null,
+            'minLength' => null,
+            'position' => null,
+            'source' => null,
+            'sourceRouteName' => null,
         );
 
         $resolver
-            ->setDefaults(array(
-                'hidden'        => false,
-                'configs'       => $defaults,
-                'transformer'   => null,
-            ))
+            ->setDefaults($defaults)
         ;
+
+        $resolver->setAllowedTypes(array(
+            'appendTo' => array('string', 'null'),
+            'autoFocus' => array('bool', 'null'),
+            'delay' => array('integer', 'null'),
+            'disabled' => array('bool', 'null'),
+            'minLength' => array('integer', 'null'),
+            'position' => array('array', 'null'),
+            'source' => array('string', 'array', 'null'),
+            'sourceRouteName' => array('string', 'null'),
+        ));
     }
 
     /**

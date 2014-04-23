@@ -302,12 +302,29 @@
         <script type="text/javascript">
             jQuery(document).ready(function($) {
                 $field = $('#{{ id }}');
-                var $configs = $.extend({
-
-                }, {{ configs|e4js }});
 
                 {% block afe_autocomplete_afe_javascript_prototype %}
-                    $field.autocomplete($configs);
+                    $field.autocomplete({
+                        {% if appendTo is not null %}
+                            'appendTo': {{ appendTo|e4js }},
+                        {% endif %}
+                        {% if autoFocus is not null %}
+                            'autoFocus': {{ autoFocus|e4js }},
+                        {% endif %}
+                        {% if delay is not null %}
+                            'delay': {{ delay|e4js }},
+                        {% endif %}
+                        {% if disabled is not null %}
+                            'disabled': {{ disabled|e4js }},
+                        {% endif %}
+                        {% if minLength is not null %}
+                            'minLength': {{ minLength|e4js }},
+                        {% endif %}
+                        {% if position is not null %}
+                            'position': {{ position|e4js }},
+                        {% endif %}
+                        'source': {{ sourceRouteName ? path(sourceRouteName)|e4js : source|e4js }}
+                    });
                 {% endblock afe_autocomplete_afe_javascript_prototype %}
             });
         </script>

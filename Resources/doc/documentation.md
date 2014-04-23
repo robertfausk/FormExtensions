@@ -1,11 +1,16 @@
 # Documentation
 
-##### Bootstrap Collection family: 
+##### Autocomplete:
+
+* `afe_autocomplete` [documentation](autocomplete/overview.md)
+
+
+##### Bootstrap Collection family:
 
 * `afe_collection_fieldset` [documentation](bootstrap-collection/overview.md)
 * `afe_collection_table` [documentation](bootstrap-collection/overview.md)
 
-##### Blueimp Upload family: 
+##### Blueimp Upload family:
 
 * `afe_single_upload` [documentation](single-upload/overview.md)
 * `afe_collection_upload` [documentation](collection-upload/overview.md)
@@ -17,7 +22,7 @@
 * `afe_datetime_picker` [documentation](datetime-picker/overview.md)
 * `afe_daterange_picker` [documentation](daterange-picker/overview.md)
 
-##### Double List family: 
+##### Double List family:
 
 * `afe_double_list_document` [documentation](double-list/overview.md)
 * `afe_double_list_entity` [documentation](double-list/overview.md)
