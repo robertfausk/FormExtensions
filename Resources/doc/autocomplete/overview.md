@@ -11,12 +11,11 @@
 
 ### Form Type
 
- `afe_mini_colors`
+ `afe_autocomplete`
 
 ### Description
 
-Use [jQuery Ui Autocomplete Widget][jquery-ui-autocomplete-demo] as GUI wrapper for
-[TextType][symfony-texttype] field allowing user to select HEX color code.
+Use [jQuery Ui Autocomplete Widget][jquery-ui-autocomplete-demo] as GUI wrapper to suggest inputco.
 
 ### Options
 
@@ -68,14 +67,15 @@ For further information see [jQuery Ui Autocomplete Doc](http://api.jqueryui.com
 Defines the data to use. For further information see [jQuery Ui Autocomplete Doc](http://api.jqueryui.com/autocomplete/#option-autoFocus).
 Examples:
 
-* ```JavaScript
+```JavaScript
     [lorem, ipsum, dolor, sit, amet]
     ```
-* ```JavaScript
+```JavaScript
     [{label: "choice1", value: "lorem"}, {label: "choice2", value: "ipsum"}, ...]
     ```
-* `http://my.domain.org/autocompleteApi`
-* ```JavaScript:
+`http://my.domain.org/autocompleteApi`
+
+```JavaScript
    function( request, response ) {
         $.ajax({
               url: "http://api.geonames.org/searchJSON",
